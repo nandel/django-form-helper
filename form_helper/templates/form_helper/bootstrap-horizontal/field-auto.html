@@ -1,0 +1,15 @@
+<div class="control-group{% if field.errors %} error{% endif %}">
+	<label class="control-label" for="id_{{ field.html_name }}">{{ field.label }}</label>
+
+	<div class="controls">
+		{{ field }}
+
+		{% if field.errors %}
+			{% for error in field.errors %}
+				<span class="help-inline">{{ error }}</span>
+			{% endfor %}
+		{% endif %}
+
+		{% if field.help_text %}<span class="help-inline">{{ field.help_text }}</span>{% endif %}
+	</div>
+</div>

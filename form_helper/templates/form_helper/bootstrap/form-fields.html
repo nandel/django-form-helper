@@ -1,0 +1,7 @@
+{# Hidden fields #}
+{% include 'form_helper/hidden-fields.html' %}
+
+{# Visible fields #}
+{% for field in form.visible_fields %}
+	{% include 'form_helper/bootstrap/field.html' %}
+{% endfor %}

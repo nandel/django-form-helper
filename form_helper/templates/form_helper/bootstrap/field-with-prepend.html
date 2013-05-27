@@ -1,0 +1,21 @@
+<div class="control-group{% if field.errors %} error{% endif %}">
+	<label for="id_{{ field.html_name }}">{{ field.label }}</label>
+
+	<div class="input-prepend">
+		<span class="add-on">{% block add-on %}{% if prepend %}{{ prepend|safe }}{% endif %}{% endblock %}</span>
+
+		{% if not input %}
+			<input type="text" id="id_{{ name }}" name="{{ name }}" placeholder="{{ label }}" value="{% if value %}{{ value }}{% else %}{% if default %}{{ default }}{% endif %}{% endif %}">
+		{% else %}
+				{{ input|safe }}
+		{% endif %}
+	</div>
+
+	{% if field.errors %}
+		{% for error in field.errors %}
+			<span class="help-block">{{ error }}</span>
+		{% endfor %}
+	{% endif %}
+
+	{% if field.help_text %}<span class="help-block">{{ field.help_text }}</span>{% endif %}
+</div>

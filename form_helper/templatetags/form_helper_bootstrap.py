@@ -46,6 +46,13 @@ def render_field(field, style=None):
 	if style:
 		template = template + '-' + style
 
+	try:
+		field_classes = field.field.widget.attrs.get('class', '')
+		field_classes += ' form-control'
+		field.field.widget.attrs['class'] = field_classes
+	except:
+		pass
+
 	return form_helper.render_field(field, 'form_helper/' + template + '/field-auto.html')
 
 # ---------------------------------------------------------
@@ -91,7 +98,7 @@ def field_prepend_email(name, label, value=None, default=None, style=None, help_
 	"""
 	Output a field with a prepend for email fields
 	"""
-	prepend = '<i class="icon-envelope"></i>'
+	prepend = '<i class="glyphicon glyphicon-envelope"></i>'
 	return field_prepend(name, label, prepend, value, default, style, help_text, errors)
 
 # ---------------------------------------------------------
@@ -101,6 +108,6 @@ def field_prepend_password(name, label, style=None, help_text=None, errors=None)
 	"""
 	Output a field with a prepend for pasword fields
 	"""
-	input = '<input type="password" id="id_' + name + '" name="' + name + '" placeholder="' + label +'">'
-	prepend = '<i class="icon-lock"></i>'
+	input = '<input type="password" class="form-control" id="id_' + name + '" name="' + name + '" placeholder="' + label +'">'
+	prepend = '<i class="glyphicon glyphicon-lock"></i>'
 	return field_prepend_super(name, label, prepend, input, None, None, style, help_text, errors)

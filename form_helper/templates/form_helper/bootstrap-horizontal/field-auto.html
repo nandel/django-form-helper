@@ -1,15 +1,15 @@
-<div class="control-group{% if field.errors %} error{% endif %}">
-	<label class="control-label" for="id_{{ field.html_name }}">{{ field.label }}</label>
+<div class="form-group{% if field.errors %} has-error{% endif %}">
+	<label class="col-sm-2 control-label" for="id_{{ field.html_name }}">{{ field.label }}</label>
 
-	<div class="controls">
-		{{ field }}
+	<div class="controls col-sm-5">
+		<div>{{ field }}</div>
 
 		{% if field.errors %}
 			{% for error in field.errors %}
-				<span class="help-inline">{{ error }}</span>
+				<span class="help-block">{{ error }}</span>
 			{% endfor %}
 		{% endif %}
-
-		{% if field.help_text %}<span class="help-inline">{{ field.help_text }}</span>{% endif %}
 	</div>
+
+	{% if field.help_text %}<div class="col-sm-4"><span class="help-block">{{ field.help_text }}</span></div>{% endif %}
 </div>

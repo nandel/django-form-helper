@@ -2,7 +2,7 @@ from django.template import Context, loader
 
 class BaseForm(object):
 	"""
-	Abstract class to add some method to render the form as bootstrap_forms
+	Abstract class to add some method to render the form
 	"""
 	def as_template(self, template):
 		"Returns this form fields rendered as Bootstrap form."

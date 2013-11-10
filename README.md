@@ -4,7 +4,7 @@ django-form-helper is a tool to render forms using bootstrap3 while developping 
 
 Install
 -----
-Add ``form_helper in your`` ``INSTALLED_APPS``::
+Add ``form_helper`` in your ``INSTALLED_APPS``::
 
 	INSTALLED_APPS = (
 	...

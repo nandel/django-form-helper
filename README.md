@@ -1,19 +1,27 @@
-django-form-helper
+Django Form helper
 ==================
-django-form-helper is a tool to render forms using bootstrap while developping with django
+django-form-helper is a tool to render forms using bootstrap3 while developping with django
 
-install:
-  Add in your instaled apps:
-    <code>INSTALED_APPS += ('form_helper',);</code>
+Install
+-----
+Add ``form_helper in your`` ``INSTALLED_APPS``::
 
-usage:
-<code>
-{% load form_helper_bootstrap %}
+	INSTALLED_APPS = (
+	...
+	'form_helper',
+	)
+	
 
-<fieldset>
-	<legend>Info</legend>
-	{{ form.title_field|render_field:"horizontal" }}	
-	{{ form.date_field|render_field:"horizontal" }}	
-	{{ form.text_field|render_field:"horizontal" }}	
-</fieldset>
-</code>
+Usage
+------
+In your template use this syntax::
+
+      {% load form_helper_bootstrap %}
+      <fieldset>
+        <legend>Info</legend>
+        {{ form.title_field|render_field:"horizontal" }}	
+        {{ form.date_field|render_field:"horizontal" }}	
+        {{ form.text_field|render_field:"horizontal" }}	
+      </fieldset>
+
+
